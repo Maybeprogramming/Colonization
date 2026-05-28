@@ -12,7 +12,7 @@ public class BotStateMachine : StateMachine
     {
         AddState<IdleState>(new IdleState(this));
         AddState<WalkState>(new WalkState(this));
-        AddState<MiningState>(new MiningState(this));
+        AddState<GatheringState>(new GatheringState(this));
         AddState<DropState>(new DropState(this));
 
         TransitionTo<IdleState>();

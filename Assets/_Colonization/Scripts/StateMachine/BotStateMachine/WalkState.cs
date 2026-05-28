@@ -32,7 +32,7 @@ public class WalkState : IState
     {
         if (_mover.IsMovingComplete() && _stateMachine.Inventory.IsFull == false)
         {
-            _stateMachine.TransitionTo<MiningState>();
+            _stateMachine.TransitionTo<GatheringState>();
         }
         else if (_mover.IsMovingComplete() && _stateMachine.Inventory.IsFull)
         {
