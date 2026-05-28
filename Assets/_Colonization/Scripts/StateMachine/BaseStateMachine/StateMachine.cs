@@ -7,6 +7,8 @@ public abstract class StateMachine : MonoBehaviour, IStateMachine
     private IState _currentState;
     private Dictionary<Type, IState> _states = new Dictionary<Type, IState>();
 
+    public event Action<Type> StateChanged;
+
     public void Update() =>
         UpdateState();
 
@@ -25,6 +27,8 @@ public abstract class StateMachine : MonoBehaviour, IStateMachine
         {
             _currentState = state;
             _currentState.Enter();
+
+            StateChanged?.Invoke(typeof(T));
         }
         else
         {
